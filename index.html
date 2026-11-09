@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Comment Interceptor</title>
+  <link rel="stylesheet" href="3_styles/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="app-title">Instagram Moderation Demo</div>
+    <div class="view-switcher">
+      <button id="btn-view-commenter" class="view-btn active">Commenter View</button>
+      <button id="btn-view-op" class="view-btn">Original Poster (OP) View</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Instagram Post Card -->
+    <article class="insta-card">
+      <div class="card-header">
+        <img src="https://picsum.photos/id/64/100/100" alt="Avatar" class="avatar">
+        <span class="username">photo_creator</span>
+      </div>
+
+      <img src="https://picsum.photos/id/1062/600/600" alt="Post photo" class="post-img">
+
+      <div class="card-body">
+        <div class="caption">
+          <span class="username">photo_creator</span>
+          <span>Sunset vibes after a long day! 🌅 #nature #peace</span>
+        </div>
+
+        <div id="comments-list" class="comments-list">
+          <!-- Comments render dynamically -->
+        </div>
+      </div>
+
+      <div id="status-banner" class="status-banner"></div>
+
+      <form id="comment-form" class="comment-form">
+        <input type="text" id="comment-input" class="comment-input" placeholder="Add a comment..." required>
+        <button type="submit" class="post-btn">Post</button>
+      </form>
+    </article>
+
+    <!-- OP Pending Comments Panel -->
+    <section id="op-panel" class="op-panel hidden">
+      <h3>
+        Pending Comments for Review
+        <span id="pending-count" class="badge">0</span>
+      </h3>
+      <div id="pending-list" class="pending-list">
+        <!-- Pending items render dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Load scripts in order -->
+  <script src="2_scripts/1_data.js"></script>
+  <script src="2_scripts/2_rules.js"></script>
+  <script src="2_scripts/3_display.js"></script>
+  <script src="2_scripts/4_start.js"></script>
+</body>
+</html>
