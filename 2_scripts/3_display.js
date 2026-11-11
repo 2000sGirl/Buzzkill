@@ -8,7 +8,7 @@ function renderComments() {
   state.approvedComments.forEach(comment => {
     const item = document.createElement('div');
     item.className = 'comment-item';
-    item.innerHTML = `<span class="username">${escapeHtml(comment.author)}</span>${escapeHtml(comment.text)}`;
+    item.innerHTML = `<span class="username">${escapeHtml(comment.author)}: </span>${escapeHtml(comment.text)}`;
     listEl.appendChild(item);
   });
 }
@@ -38,6 +38,29 @@ function renderPendingComments() {
       </div>
     `;
     pendingContainer.appendChild(item);
+  });
+
+  // Attach click events to approve/reject buttons
+  pendingContainer.querySelectorAll('.btn-approve').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const id = Number(e.target.dataset.id);
+      if (typeof approvePendingComment === 'function') {
+        approvePendingComment(id);
+      }
+      renderComments();
+      renderPendingComments();
+    });
+  });
+
+  pendingContainer.querySelectorAll('.btn-reject').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const id = Number(e.target.dataset.id);
+      if (typeof rejectPendingComment === 'function') {
+        rejectPendingComment(id);
+      }
+      renderComments();
+      renderPendingComments();
+    });
   });
 }
 
@@ -75,3 +98,4 @@ function switchView(viewName) {
 
 function escapeHtml(str) {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
