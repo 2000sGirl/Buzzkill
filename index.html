@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Instagram Comment Interceptor</title>
   <link rel="stylesheet" href="3_styles/style.css">
+  <!-- Defer ensures scripts run in order AFTER the page layout is fully loaded -->
+  <script defer src="2_scripts/1_data.js"></script>
+  <script defer src="2_scripts/2_rules.js"></script>
+  <script defer src="2_scripts/3_display.js"></script>
+  <script defer src="2_scripts/4_start.js"></script>
 </head>
 <body>
 
@@ -20,11 +25,13 @@
     <!-- Instagram Post Card -->
     <article class="insta-card">
       <div class="card-header">
-        <img src="https://picsum.photos/id/64/100/100" alt="Avatar" class="avatar">
+        <div class="avatar" style="background:#e1306c; display:flex; align-items:center; justify-content:center; color:white; font-size:12px; font-weight:bold;">PC</div>
         <span class="username">photo_creator</span>
       </div>
 
-      <img src="https://picsum.photos/id/1062/600/600" alt="Post photo" class="post-img">
+      <div class="post-img-container">
+        Sunset vibes after a long day! 🌅
+      </div>
 
       <div class="card-body">
         <div class="caption">
@@ -57,10 +64,5 @@
     </section>
   </main>
 
-  <!-- Load scripts in order -->
-  <script src="2_scripts/1_data.js"></script>
-  <script src="2_scripts/2_rules.js"></script>
-  <script src="2_scripts/3_display.js"></script>
-  <script src="2_scripts/4_start.js"></script>
 </body>
 </html>
