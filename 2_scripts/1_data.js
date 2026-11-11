@@ -21,3 +21,6 @@ async function fetchBlockedWords() {
     state.blockedWords = ['hate', 'ugly', 'stupid', 'loser', 'idiot', 'trash', 'npc', 'mid', 'clown'];
   }
 }
+
+// Automatically fetch on script load
+fetchBlockedWords();
